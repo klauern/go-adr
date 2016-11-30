@@ -36,3 +36,7 @@ func (d DecisionRecord) format() (string, error) {
 	}
 	return wr.String(), nil
 }
+
+func (d DecisionRecord) writeFile(path string) error {
+
+}
