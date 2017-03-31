@@ -122,7 +122,36 @@ func Test_parseADRNumber(t *testing.T) {
 		want    int
 		wantErr bool
 	}{
-	// TODO: Add test cases.
+		{
+			"first test",
+			args{"0002-Some Thoughts"},
+			2,
+			false,
+		},
+		{
+			"second test, fail",
+			args{"junkthing"},
+			0,
+			true,
+		},
+		{
+			"third test, different ADR format",
+			args{"0200 - lots of things.md"},
+			0,
+			true,
+		},
+		{
+			"large num",
+			args{"2000530-whoa.md"},
+			2000530,
+			false,
+		},
+		{
+			"middle num",
+			args{"25-thing.md"},
+			25,
+			false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
