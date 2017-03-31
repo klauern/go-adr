@@ -34,13 +34,13 @@ import (
 
 // DecisionRecord is a type of Architecture Decision Record.
 type DecisionRecord struct {
-	Number       int
-	Title        string
-	Date         time.Time
-	Status       string
-	Context      string
-	Decision     string
-	Consequences string
+	Number       int       `json:"number,omitempty"`
+	Title        string    `json:"title,omitempty"`
+	Date         time.Time `json:"date,omitempty"`
+	Status       string    `json:"status,omitempty"`
+	Context      string    `json:"context,omitempty"`
+	Decision     string    `json:"decision,omitempty"`
+	Consequences string    `json:"consequences,omitempty"`
 }
 
 func (d DecisionRecord) format() (bytes.Buffer, error) {
