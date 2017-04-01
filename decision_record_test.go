@@ -23,7 +23,12 @@ import (
 	"bytes"
 	"reflect"
 	"testing"
+
+	"github.com/spf13/afero"
 )
+
+var AppFs afero.Fs = afero.NewMemMapFs()
+
 
 func TestDecisionRecord_format(t *testing.T) {
 	tests := []struct {
@@ -96,7 +101,9 @@ func TestNextDecisionRecordNumber(t *testing.T) {
 		want    int
 		wantErr bool
 	}{
-	// TODO: Add test cases.
+		{
+
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
