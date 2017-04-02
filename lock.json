@@ -1,10 +1,26 @@
 {
-  "memo": "cab30d469668c680ceb3ce5d130c5eb4b19c1dcbfdecec3c194bb1c553efe193",
+    "memo": "0366dd8998b673bd08c053007ea0d9c8272d64d435d56854b232f04c1c01b200",
     "projects": [
         {
+            "name": "github.com/alecaivazis/survey",
+            "branch": "master",
+            "revision": "eda30e4d5ef64b2f4fa55ce7addd9ebc6ad59e30",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/buger/goterm",
+            "branch": "master",
+            "revision": "bc6c333206f446a53cac4db5d2e6a4316139d737",
+            "packages": [
+                "."
+            ]
+        },
+        {
             "name": "github.com/fsnotify/fsnotify",
-          "version": "v1.4.2",
-          "revision": "629574ca2a5df945712d3079857300b5e4da0236",
+            "version": "v1.4.2",
+            "revision": "629574ca2a5df945712d3079857300b5e4da0236",
             "packages": [
                 "."
             ]
@@ -35,8 +51,32 @@
         },
         {
             "name": "github.com/magiconair/properties",
-          "version": "v1.7.2",
-          "revision": "f917359f079a3759162704eaa8caeec3d01d9f91",
+            "version": "v1.7.2",
+            "revision": "f917359f079a3759162704eaa8caeec3d01d9f91",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/mattn/go-colorable",
+            "version": "v0.0.7",
+            "revision": "d228849504861217f796da67fae4f6e347643f15",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/mattn/go-isatty",
+            "version": "v0.0.2",
+            "revision": "fc9e8d8ef48496124e79ae0df75490096eccf6fe",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/mgutz/ansi",
+            "branch": "master",
+            "revision": "9520e82c474b0a04dd04f8a40959027271bab992",
             "packages": [
                 "."
             ]
@@ -51,7 +91,7 @@
         },
         {
             "name": "github.com/pelletier/go-buffruneio",
-          "version": "v0.2.0",
+            "version": "v0.2.0",
             "revision": "c37440a7cf42ac63b919c752ca73a85067e05992",
             "packages": [
                 "."
@@ -59,18 +99,27 @@
         },
         {
             "name": "github.com/pelletier/go-toml",
-          "version": "v0.5.0",
-          "revision": "13d49d4606eb801b8f01ae542b4afc4c6ee3d84a",
-          "packages": [
-            "."
-          ]
-        },
-      {
-        "name": "github.com/pkg/errors",
-        "version": "v0.8.0",
-        "revision": "3866ebc348c54054262feae422da428fe6cf147d",
+            "version": "v0.5.0",
+            "revision": "13d49d4606eb801b8f01ae542b4afc4c6ee3d84a",
             "packages": [
                 "."
+            ]
+        },
+        {
+            "name": "github.com/pkg/errors",
+            "version": "v0.8.0",
+            "revision": "3866ebc348c54054262feae422da428fe6cf147d",
+            "packages": [
+                "."
+            ]
+        },
+        {
+            "name": "github.com/pkg/term",
+            "branch": "master",
+            "revision": "b1f72af2d63057363398bec5873d16a98b453312",
+            "packages": [
+                ".",
+                "termios"
             ]
         },
         {
@@ -84,7 +133,7 @@
         },
         {
             "name": "github.com/spf13/cast",
-          "version": "v1.0.0",
+            "version": "v1.0.0",
             "revision": "ce135a4ebeee6cfe9a26c93ee0d37825f26113c7",
             "packages": [
                 "."
@@ -93,7 +142,7 @@
         {
             "name": "github.com/spf13/cobra",
             "branch": "master",
-          "revision": "7aeaa2cce6ae7e18d2a6ee597b60ee137e999bd9",
+            "revision": "7aeaa2cce6ae7e18d2a6ee597b60ee137e999bd9",
             "packages": [
                 "."
             ]
@@ -133,7 +182,7 @@
         {
             "name": "golang.org/x/text",
             "branch": "master",
-          "revision": "f4b4367115ec2de254587813edaa901bc1c723a8",
+            "revision": "f4b4367115ec2de254587813edaa901bc1c723a8",
             "packages": [
                 "internal/gen",
                 "internal/triegen",
