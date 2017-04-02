@@ -25,19 +25,18 @@ import (
 	"path"
 )
 
-// AdrDir is the base directory that will be created for storing Architecture
+// DefaultDir is the base directory that will be created for storing Architecture
 // Decision Records.
-const AdrDir = "adr"
+const DefaultDir = "adr"
+const pathNotFoundErr = "ADR Path Not Found"
 
-const adrPathNotFound = "ADR Path Not Found"
+var searchPaths = []string{"adr", "docs", "arch"}
 
-var adrPaths = []string{"adr", "docs", "arch"}
-
-// InitializeConfig creates the AdrDir directory only if it's not already present
+// InitializeConfig creates the DefaultDir directory only if it's not already present
 func InitializeConfig() (bool, error) {
 	p, err := FindADRPath()
 	if err != nil {
-		err := appFs.MkdirAll(path.Join(p, AdrDir), 0711)
+		err := appFs.MkdirAll(path.Join(p, DefaultDir), 0711)
 		if err != nil {
 			return false, err
 		}
@@ -48,15 +47,15 @@ func InitializeConfig() (bool, error) {
 
 // FindADRPath will look up the ADR path with the given defaults.
 func FindADRPath() (string, error) {
-	for _, v := range adrPaths {
+	for _, v := range searchPaths {
 		if f, err := appFs.Open(v); err == nil {
 			if st, er := f.Stat(); er == nil {
 				if st.IsDir() {
 					return v, nil
 				}
 			}
-			return "", errors.New(adrPathNotFound)
+			return "", errors.New(pathNotFoundErr)
 		}
 	}
-	return "", errors.New(adrPathNotFound)
+	return "", errors.New(pathNotFoundErr)
 }

@@ -29,6 +29,7 @@ import (
 	"strings"
 	"text/template"
 	"time"
+
 	"github.com/spf13/afero"
 )
 
@@ -43,7 +44,7 @@ type DecisionRecord struct {
 	Consequences string    `json:"consequences,omitempty"`
 }
 
-var appFs afero.Fs = afero.NewOsFs()
+var appFs = afero.NewOsFs()
 
 func (d DecisionRecord) format() (bytes.Buffer, error) {
 	tmpl, err := afero.ReadFile(appFs, "templates/template.md")

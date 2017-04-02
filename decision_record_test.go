@@ -27,7 +27,6 @@ import (
 	"github.com/spf13/afero"
 )
 
-
 func TestDecisionRecord_format(t *testing.T) {
 	appFs = afero.NewMemMapFs()
 	tests := []struct {
@@ -35,8 +34,7 @@ func TestDecisionRecord_format(t *testing.T) {
 		d       DecisionRecord
 		want    bytes.Buffer
 		wantErr bool
-	}{
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got, err := tt.d.format()
@@ -57,9 +55,7 @@ func TestDecisionRecord_formatTitle(t *testing.T) {
 		d    DecisionRecord
 		want string
 	}{
-		{
-
-		},
+		{},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -102,9 +98,7 @@ func TestNextDecisionRecordNumber(t *testing.T) {
 		want    int
 		wantErr bool
 	}{
-		{
-
-		},
+		{},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
