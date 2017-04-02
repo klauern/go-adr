@@ -27,17 +27,15 @@ import (
 	"github.com/spf13/afero"
 )
 
-var AppFs afero.Fs = afero.NewMemMapFs()
-
 
 func TestDecisionRecord_format(t *testing.T) {
+	appFs = afero.NewMemMapFs()
 	tests := []struct {
 		name    string
 		d       DecisionRecord
 		want    bytes.Buffer
 		wantErr bool
 	}{
-	// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -59,7 +57,9 @@ func TestDecisionRecord_formatTitle(t *testing.T) {
 		d    DecisionRecord
 		want string
 	}{
-	// TODO: Add test cases.
+		{
+
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -92,6 +92,7 @@ func TestDecisionRecord_writeFile(t *testing.T) {
 }
 
 func TestNextDecisionRecordNumber(t *testing.T) {
+
 	type args struct {
 		path string
 	}

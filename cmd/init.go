@@ -18,45 +18,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-package adr
+package cmd
 
 import (
-	"errors"
-	"path"
+	"github.com/klauern/go-adr"
+	"github.com/spf13/cobra"
 )
 
-// AdrDir is the base directory that will be created for storing Architecture
-// Decision Records.
-const AdrDir = "adr"
-
-const adrPathNotFound = "ADR Path Not Found"
-
-var adrPaths = []string{"adr", "docs", "arch"}
-
-// InitializeConfig creates the AdrDir directory only if it's not already present
-func InitializeConfig() (bool, error) {
-	p, err := FindADRPath()
-	if err != nil {
-		err := appFs.MkdirAll(path.Join(p, AdrDir), 0711)
-		if err != nil {
-			return false, err
-		}
-		return true, nil
-	}
-	return true, nil
+// initCmd represents the init command
+var initCmd = &cobra.Command{
+	Use:   "init",
+	Short: "Initialize the ADR directory.",
+	Long: `This will create a new ADR location at the 'adr/' directory.
+`,
+	Run: func(cmd *cobra.Command, args []string) {
+		adr.InitializeConfig()
+	},
 }
 
-// FindADRPath will look up the ADR path with the given defaults.
-func FindADRPath() (string, error) {
-	for _, v := range adrPaths {
-		if f, err := appFs.Open(v); err == nil {
-			if st, er := f.Stat(); er == nil {
-				if st.IsDir() {
-					return v, nil
-				}
-			}
-			return "", errors.New(adrPathNotFound)
-		}
-	}
-	return "", errors.New(adrPathNotFound)
+func init() {
+	RootCmd.AddCommand(initCmd)
 }
