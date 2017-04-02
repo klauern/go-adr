@@ -23,6 +23,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/alecaivazis/survey"
 	"github.com/spf13/cobra"
 )
 
@@ -32,10 +33,27 @@ var newCmd = &cobra.Command{
 	Short: "Create a new architecture decision record",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("new called")
+		promptRecordFields()
 	},
 }
 
 func init() {
 	RootCmd.AddCommand(newCmd)
+}
+
+func promptRecordFields() {
+	var qs = []*survey.Question{
+		{
+			Name:     "title",
+			Prompt:   &survey.Input{"What is the title of the architectural decision?", ""},
+			Validate: survey.Required,
+		},
+	}
+
+	answers, err := survey.Ask(qs)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("answers: %v", answers)
 }

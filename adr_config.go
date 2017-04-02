@@ -66,7 +66,7 @@ func FindADRPath() (string, error) {
 }
 
 func ListADRs() ([]string, error) {
-	var adrs []string
+	var records []string
 	path, err := FindADRPath()
 	if err != nil {
 		return nil, errors.Wrap(err, "Can't find ADR path")
@@ -77,8 +77,8 @@ func ListADRs() ([]string, error) {
 	}
 	for _, file := range files {
 		if !file.IsDir() {
-			adrs = append(adrs, file.Name())
+			records = append(records, file.Name())
 		}
 	}
-	return adrs, nil
+	return records, nil
 }

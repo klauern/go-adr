@@ -1,10 +1,10 @@
 {
-    "memo": "eff93dcb2555b791a1deb7d70074207ed8e7ec7d991ac885a03364457d3d6988",
+  "memo": "cab30d469668c680ceb3ce5d130c5eb4b19c1dcbfdecec3c194bb1c553efe193",
     "projects": [
         {
             "name": "github.com/fsnotify/fsnotify",
-            "branch": "master",
-            "revision": "4da3e2cfbabc9f751898f250b49f2439785783a1",
+          "version": "v1.4.2",
+          "revision": "629574ca2a5df945712d3079857300b5e4da0236",
             "packages": [
                 "."
             ]
@@ -35,8 +35,8 @@
         },
         {
             "name": "github.com/magiconair/properties",
-            "branch": "master",
-            "revision": "51463bfca2576e06c62a8504b5c0f06d61312647",
+          "version": "v1.7.2",
+          "revision": "f917359f079a3759162704eaa8caeec3d01d9f91",
             "packages": [
                 "."
             ]
@@ -51,7 +51,7 @@
         },
         {
             "name": "github.com/pelletier/go-buffruneio",
-            "branch": "master",
+          "version": "v0.2.0",
             "revision": "c37440a7cf42ac63b919c752ca73a85067e05992",
             "packages": [
                 "."
@@ -59,8 +59,16 @@
         },
         {
             "name": "github.com/pelletier/go-toml",
-            "branch": "master",
-            "revision": "e32a2e04744250647a72bf17da1b09befc03b6b1",
+          "version": "v0.5.0",
+          "revision": "13d49d4606eb801b8f01ae542b4afc4c6ee3d84a",
+          "packages": [
+            "."
+          ]
+        },
+      {
+        "name": "github.com/pkg/errors",
+        "version": "v0.8.0",
+        "revision": "3866ebc348c54054262feae422da428fe6cf147d",
             "packages": [
                 "."
             ]
@@ -76,7 +84,7 @@
         },
         {
             "name": "github.com/spf13/cast",
-            "branch": "master",
+          "version": "v1.0.0",
             "revision": "ce135a4ebeee6cfe9a26c93ee0d37825f26113c7",
             "packages": [
                 "."
@@ -85,7 +93,7 @@
         {
             "name": "github.com/spf13/cobra",
             "branch": "master",
-            "revision": "7be4beda01ec05d0b93d80b3facd2b6f44080d94",
+          "revision": "7aeaa2cce6ae7e18d2a6ee597b60ee137e999bd9",
             "packages": [
                 "."
             ]
@@ -125,7 +133,7 @@
         {
             "name": "golang.org/x/text",
             "branch": "master",
-            "revision": "fc7fa097411d30e6708badff276c4c164425590c",
+          "revision": "f4b4367115ec2de254587813edaa901bc1c723a8",
             "packages": [
                 "internal/gen",
                 "internal/triegen",
