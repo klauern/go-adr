@@ -21,8 +21,10 @@
 package adr
 
 import (
-	"errors"
 	"path"
+
+	"github.com/pkg/errors"
+	"github.com/spf13/afero"
 )
 
 // DefaultDir is the base directory that will be created for storing Architecture
@@ -48,14 +50,35 @@ func InitializeConfig() (bool, error) {
 // FindADRPath will look up the ADR path with the given defaults.
 func FindADRPath() (string, error) {
 	for _, v := range searchPaths {
-		if f, err := appFs.Open(v); err == nil {
-			if st, er := f.Stat(); er == nil {
-				if st.IsDir() {
-					return v, nil
-				}
-			}
-			return "", errors.New(pathNotFoundErr)
+		f, err := appFs.Open(v)
+		if err != nil {
+			continue
+		}
+		st, er := f.Stat()
+		if er != nil {
+			continue
+		}
+		if st.IsDir() {
+			return v, nil
 		}
 	}
 	return "", errors.New(pathNotFoundErr)
+}
+
+func ListADRs() ([]string, error) {
+	var adrs []string
+	path, err := FindADRPath()
+	if err != nil {
+		return nil, errors.Wrap(err, "Can't find ADR path")
+	}
+	files, err := afero.ReadDir(appFs, path)
+	if err != nil {
+		return nil, errors.Wrap(err, "Can't read directory")
+	}
+	for _, file := range files {
+		if !file.IsDir() {
+			adrs = append(adrs, file.Name())
+		}
+	}
+	return adrs, nil
 }
